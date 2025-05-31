@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(80, 80, 91);
+        }
+
+        h1 {
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-size: 100px;
+            font-family: "Lora", serif;
+            color: rgb(216, 216, 228);
+            text-shadow: 3px 0 rgb(184, 56, 77);
+        }
+
+        footer {
+            font-family: "Lora", serif;
+            color: #DBEDF3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .drum {
+            display: inline-block;
+            height: 150px;
+            width: 150px;
+            align-items: center;
+            text-align: center;
+            color: rgb(207, 26, 56);
+            /* justify-content: center; */
+            justify-items: center;
+            border: 10px solid rgb(46, 46, 64);
+            margin: 30px;
+            /* margin-left: 50px; */
+            text-shadow: 3px 0 #9e999c;
+            font-size: 80px;
+            line-height: 2;
+            font-family: "Lora", serif;
+            outline: none;
+            border-radius: 15px;
+            background-color: rgb(255, 255, 255);
+
+        }
+
+        button:hover {
+            height: 140px;
+            width: 140px;
+            transition-duration: 0.2s;
+            box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .w {
+            background-image: url("images/tom1.png ");
+        }
+
+        .a {
+            background-image: url("images/tom2.png");
+        }
+
+        .s {
+            background-image: url("images/tom3.png");
+        }
+
+        .d {
+            background-image: url("images/tom4.png");
+        }
+
+        .j {
+            background-image: url("images/snare.png");
+        }
+
+        .k {
+            background-image: url("images/crash.png");
+        }
+
+        .l {
+            background-image: url("images/kick.png");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Drum 🥁 Kit</h1>
+        <div class="set">
+            <button class="w drum">w</button>
+            <button class="a drum">a</button>
+            <button class="s drum">s</button>
+            <button class="d drum">d</button>
+            <button class="j drum">j</button>
+            <button class="k drum">k</button>
+            <button class="l drum">l</button>
+        </div>
+    </div>
+    <footer>
+        Made with ❤️ in India.
+    </footer>
+    <script>
+
+
+
+        var numberofButtons = document.querySelectorAll(".drum").length;
+        for (var i = 0; i < numberofButtons; i++) {
+            document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+                var buttonInnerHtml = this.innerHTML;
+                makeSound(buttonInnerHtml);
+            });
+        }
+
+        document.addEventListener("keypress", function (event) {
+            makeSound(event.key);
+        });
+        function makeSound(key) {
+            switch (key) {
+                case "w":
+                    var tom1 = new Audio('sounds/tom-1.mp3');
+                    tom1.play();
+                    break;
+                case "a":
+                    var tom2 = new Audio('sounds/tom-2.mp3');
+                    tom2.play();
+                    break;
+
+                case "s":
+                    var tom3 = new Audio('sounds/tom-3.mp3');
+                    tom3.play();
+                    break;
+
+                case "d":
+                    var tom4 = new Audio('sounds/tom-4.mp3');
+                    tom4.play();
+                    break;
+                case "j":
+                    var snare = new Audio('sounds/snare.mp3');
+                    snare.play();
+                    break;
+
+                case "k":
+                    var crash = new Audio('sounds/crash.mp3');
+                    crash.play();
+                    break;
+
+                case "l":
+                    var kick = new Audio('sounds/kick-bass.mp3');
+                    kick.play();
+                    break;
+
+                default:
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
